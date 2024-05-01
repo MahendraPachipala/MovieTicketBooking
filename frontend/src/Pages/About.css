@@ -1,0 +1,40 @@
+.about-page {
+    padding: 40px 0;
+    height:680px;
+  }
+  
+  .about-page h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .about-page h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .about-page p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .about-page ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .about-page li {
+    margin-bottom: 20px;
+  }
+  
+  .about-page li h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .about-page li p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  

@@ -1,0 +1,21 @@
+/* Footer.css */
+
+.footer-container {/* Adjust margin top as needed */
+    padding: 20px; /* Adjust padding as needed */
+    background-color: #343a40; /* Dark background color */
+  }
+  
+  .footer-container p {
+    margin: 0;
+    color: #fff; /* White text color */
+  }
+  
+  .footer-container a {
+    color: #fff; /* White link color */
+    text-decoration: none;
+  }
+  
+  .footer-container a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  

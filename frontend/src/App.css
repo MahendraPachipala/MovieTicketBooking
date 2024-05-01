@@ -1,0 +1,39 @@
+.scroll-container {
+   background-color: white;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 3px;
+    margin: 0 10px; 
+    scrollbar-width: none;
+    margin:10px;
+  }
+  
+  .scroll-container img {
+    padding: 10px;
+    width: 900px;
+    object-fit: cover;
+    border-radius: 20px;
+    height:300px;
+  }
+
+  .scroll-element {
+    width: inherit;
+    height: inherit;
+    position: relative;
+    left: 0%;
+    top: 0%;
+    animation: primary 15s linear infinite forwards;
+  }
+  
+  @keyframes primary {
+    0% {left:0%;}
+    99%{left:-100%}
+    100%{left:0%;}
+  }
+
+  .scroll-container:hover .scroll-element {
+    left: 0%;
+    animation-play-state: paused;
+}
+
+
