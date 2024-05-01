@@ -36,7 +36,7 @@ const SeatSelector = ({ rows, cols }) => {
           time:time,
           movie:movie.title,
         };
-        const res = await axios.post("http://localhost:4000/api/getbooked", showDetails);
+        const res = await axios.post(`${Baseurl}/getbooked`, showDetails);
         if(!res.data.bookedSeats.success){
           console.log("big problem");
         }
