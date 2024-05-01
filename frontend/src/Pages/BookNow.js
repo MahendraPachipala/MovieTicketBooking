@@ -84,7 +84,7 @@ const SeatSelector = ({ rows, cols }) => {
         seats: selectedSeatsInfo,
         time:time
       };
-      const response = await axios.post("http://localhost:4000/api/booktickets", bookingData);
+      const response = await axios.post(`${Baseurl}/booktickets`, bookingData);
       console.log("Booking successful:", response.data);
     } catch (error) {
       console.error("Error booking tickets:", error.message);
