@@ -36,7 +36,7 @@ function Booking() {
   useEffect(() => {
     const fetchTheaters = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/getalltheaters");
+        const res = await axios.get(`${Baseurl}/getalltheaters`);
         setTheaters(res.data.theatersdata);
       } catch (error) {
         console.log(error);
