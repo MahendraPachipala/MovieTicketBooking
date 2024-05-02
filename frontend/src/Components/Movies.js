@@ -43,7 +43,7 @@ const Movies = () => {
                   <h3>{movie.title}</h3>
                   <p>Rating: {movie.rating}</p>
                   <Link to = {`/Aboutmovie/${movie._id}`}>
-                   <button>Book Now</button>
+                   <button className = "Bookbutton" >Book Now</button>
                   </Link>
                 </div>
               </div>
