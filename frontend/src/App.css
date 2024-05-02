@@ -37,3 +37,19 @@
 }
 
 
+.Bookbutton {
+  background-color: rgb(227, 30, 30);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 100px;
+  border: solid rgb(215, 119, 119);
+  transition: background-color 0.3s;
+}
+
+.Bookbutton:hover {
+  background-color: rgb(143, 9, 9);
+}
+
+
+
