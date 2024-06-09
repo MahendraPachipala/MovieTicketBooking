@@ -41,7 +41,6 @@
   color: white;
   border-radius: 5px;
   padding: 5px;
-  margin-left: 100px;
   border: solid rgb(215, 119, 119);
   transition: background-color 0.3s;
 }
