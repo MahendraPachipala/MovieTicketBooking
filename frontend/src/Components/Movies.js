@@ -55,8 +55,13 @@ const Movies = ({ searchdata }) => {
                 <div className="movie-desc">
                   <h3>{movie.title}</h3>
                   <p>Rating: {movie.rating}</p>
+<<<<<<< HEAD
                   <Link to={`/Aboutmovie/${movie._id}`}>
                     <button className="Bookbutton">Book Now</button>
+=======
+                  <Link to = {`/Aboutmovie/${movie._id}`}>
+                   <button className = "Bookbutton" >Book Now</button>
+>>>>>>> 0dd31a2c5d58bb771816b8e756a45f6bf2b36a77
                   </Link>
                 </div>
               </div>
