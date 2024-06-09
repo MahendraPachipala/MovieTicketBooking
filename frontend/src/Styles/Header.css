@@ -1,0 +1,79 @@
+.container-input {
+    position: relative;
+  }
+  
+  .input { 
+    width: 450px;
+    height: 35px;
+    padding: 10px 0px 10px 40px;
+    border-radius: 7px;
+    border: solid 1px #333;
+    transition: all 0.5s ease-in-out;
+    outline: none;
+    opacity: 0.5;
+  }
+  
+  .input:hover, .input:focus {
+    background-color: #f0f0f0; 
+    border-color: #555;       
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    opacity: 1;               
+  }
+  
+  .container-input svg {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+  }
+  
+  .search {
+    margin: 6px 120px 0px 0px;
+  }
+
+  .navbar-default{
+    background-color: transparent;
+    border-color: #4a4a4a
+  }
+  
+  .toggle {
+    background-color: rgb(255, 255, 255);
+    width: 30px;
+    height: 0px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+  }
+  
+  .darkmode {
+    display: none;
+  }
+  
+  .icon {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    transition: transform 500ms;
+  }
+  
+  .icon--moon {
+    transition-delay: 200ms;
+    color: black;
+  }
+  
+  .icon--sun {
+    transform: scale(0);
+    color: yellow;
+  }
+  
+  #switch:checked + .icon--moon {
+    transform: rotate(360deg) scale(0);
+  }
+  
+  #switch:checked ~ .icon--sun {
+    transition-delay: 200ms;
+    transform: scale(1) rotate(360deg);
+  }
+  

@@ -40,7 +40,7 @@ export const updateMovieData = async (req, res) => {
 
 export const getAlltheaters = async (req, res) => {
     try {
-        const data = await Theater.find(); // Wait for Theater.find() to resolve
+        const data = await Theater.find();
         res.status(200).json({ success: true, theatersdata: data });
     } catch (err) {
         console.log(err);

@@ -4,6 +4,7 @@ import axios from "axios";
 import MovieCard from '../Components/MovieCard';
 import "../Styles/Booking.css";
 import { Baseurl } from '../Utilities/Config';
+import cookies from 'js-cookie';
 
 function Booking() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,9 +16,18 @@ function Booking() {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
   const [selectedDates, setSelectedDates] = useState([]);
+  const [isAlertShown, setIsAlertShown] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
+  const istoken = cookies.get('token');
+
+  useEffect(() => {
+    if (!istoken) {
+      alert("Please Login To Continue");
+      navigate("/login");
+    }
+  }, [istoken, navigate]);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -55,9 +65,7 @@ function Booking() {
       dates.push(date.toISOString().split('T')[0]);
     }
     setSelectedDates(dates);
-    const date = new Date(currentDate);
-    date.setDate(date.getDate());
-    setSelectedDate(date.toISOString().split('T')[0]);
+    setSelectedDate(dates[0]);
   }, []);
 
   const handleBookNow = (showTime, theater) => {
@@ -101,7 +109,7 @@ function Booking() {
   };
 
   return (
-    <div className="booking-container" style = {{height:"675px"}}>
+    <div className="booking-container" style={{ height: "675px" }}>
       {error && <div className="error">{error}</div>}
       <MovieCard movie={movie} />
       <div className="filters">
@@ -132,33 +140,33 @@ function Booking() {
         </div>
         <h3>{selectedLocation}</h3>
         {selectedLocation && (
-  <div>
-    {theaters
-      .filter(theater => theater.location === selectedLocation)
-      .map(theater => {
-        if (movie.title === theater.currentMovie) {
-          return (
-            <div className="Movietimings" key={theater._id}>
-              <p>{theater.name}</p>
-              <div className="dates">
-                {theater.availableDates.map(dateObj => {
-                  if (dateObj.date === selectedDate) {
-                    return dateObj.showTimings.map(time => (
-                      <button className="showtime" onClick={() => handleShowTimeChange(time.time, theater)} key={time._id}>{time.time}</button>
-                    ));
-                  }
-                  return null;
-                })}
-              </div>
-            </div>
-          );
-        }
-        return null;
-      })}
-  </div>
-)}
+          <div>
+            {theaters
+              .filter(theater => theater.location === selectedLocation)
+              .map(theater => {
+                if (movie?.title === theater.currentMovie) {
+                  return (
+                    <div className="Movietimings" key={theater._id}>
+                      <p>{theater.name}</p>
+                      <div className="dates">
+                        {theater.availableDates.map(dateObj => {
+                          if (dateObj.date === selectedDate) {
+                            return dateObj.showTimings.map(time => (
+                              <button className="showtime" onClick={() => handleShowTimeChange(time.time, theater)} key={time._id}>{time.time}</button>
+                            ));
+                          }
+                          return null;
+                        })}
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })}
           </div>
+        )}
       </div>
+    </div>
   );
 }
 

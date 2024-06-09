@@ -4,14 +4,12 @@
   max-width: 900px; /* Adjust max-width as needed */
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9; /* Light background color */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .movie-page h1 {
   margin-top: 10px;
-  color: #333; /* Dark text color */
   font-size:40px;
   font-weight:bold;
 }
@@ -21,13 +19,13 @@
   height: 400px; /* Maintain aspect ratio */
   margin-bottom: 20px; /* Increase space below image */
   border-radius: 10px; /* Rounded corners */
+  object-fit: cover;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .movie-page p {
   margin-top: 15px;
-  margin-bottom: 15px;
-  color: rgb(53, 43, 43); /* Slightly darker text color */
+  margin-bottom: 15px; 
   font-size:20px;
 }
 
@@ -47,12 +45,10 @@
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
-  
 }
 
 .movie-page h2 {
   margin-top: 20px;
-  color: #333; /* Dark text color */
 }
 
 .movie-page .image-gallery {
@@ -84,7 +80,6 @@
   width: 120px;
   padding: 0 20px; 
   background-color: #ff5500; 
-  color: #fff; 
   border: none; 
   border-radius: 5px;
   cursor: pointer; 

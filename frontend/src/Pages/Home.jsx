@@ -5,7 +5,7 @@ import MovieImage2 from "./movie2.jpg";
 import MovieImage3 from "./movie3.jpg";
 import MovieImage4 from "./movie4.jpg";
 
-const Home = () => {
+const Home = ({searchdata}) => {
   const movieImages = [MovieImage, MovieImage2, MovieImage3, MovieImage4];
 
   return (
@@ -17,7 +17,7 @@ const Home = () => {
       ))}
       </div>
     </div>
-        <Movies/>
+        <Movies searchdata ={searchdata}/>
     </div>
   );
 };

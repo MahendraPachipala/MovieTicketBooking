@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useParams,Link } from 'react-router-dom';
 import axios from "axios";
 import "../Styles/AboutMovie.css";
 import { Baseurl } from '../Utilities/Config';
 
+
+
 const AboutMovie = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null); 
+  const [movie, setMovie] = useState(null);
+  
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
         const response = await axios.get(`${Baseurl}/Aboutmovie/${id}`);
-        console.log(response.data.movie);
         setMovie(response.data.movie);
       } catch (error) {
         console.error("Error fetching movie:", error);

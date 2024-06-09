@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Baseurl } from '../Utilities/Config';
+import '../Styles/Login.css';
 
 const Login = () => {
-  const navigate = useNavigate();
-  
   const [userdata, setUserData] = useState({
     email: '',
     password: ''
   });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setUserData({ ...userdata, [e.target.name]: e.target.value });
   };
+
+  const istoken = Cookies.get('token');
+  useEffect(()=>{
+  if(istoken){
+    navigate("/");
+  }},[istoken]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(`${Baseurl}/auth/login`, userdata);
       if (res.data.success) {
-        navigate("/Home");
+        Cookies.set('token', res.data.token);
+        Cookies.set('name', res.data.user.username);
+        navigate("/");
       }
-      Cookies.set('token', res.data.token);
-      console.log(res.data.user);
-      Cookies.set('name',res.data.user.username);
       setMessage(res.data.message);
     } catch (err) {
       setMessage(err.response.data.message);
@@ -34,41 +39,41 @@ const Login = () => {
   };
 
   return (
-    <div style={{ height:"675px",display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <div style={{ maxWidth: '400px', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', backgroundColor: '#f9f9f9' }}>
-        <div style={{ marginBottom: '20px' }}>
-          <label htmlFor="email" style={{ display: 'block', marginBottom: '5px' }}>Email :</label>
+    <div className="login-container">
+      <div className="login-box">
+        <h1>Log In</h1>
+        <div className="login-form">
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="Email"
+            placeholder="Enter Your Email"
             value={userdata.email}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '10px', marginBottom: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+            className="login-input"
           />
-          <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>Password :</label>
           <input
             type="password"
             id="password"
             name="password"
-            placeholder="Password"
+            placeholder="Enter Your Password"
             value={userdata.password}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '10px', marginBottom: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+            className="login-input"
           />
           <button
             type="submit"
             onClick={handleSubmit}
-            style={{ width: '100%', padding: '10px 20px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+            className="login-button"
           >
             Login
           </button>
-        </div>
-        <div style={{ textAlign: 'center' }}>{message && <h5 style={{ color: 'red', padding: '10px' }}>{message}</h5>}</div>
-        <div style={{ textAlign: 'center', marginTop: '10px' }}>Don't have an account? <a href="/Register" style={{ textDecoration: 'none', color: '#007bff' }}>Register</a></div>
+        </div> 
+        <div><a href="/forgot">Forgot password?</a></div>
+        <div className="login-message">{message && <h5>{message}</h5>}</div>
+        <div className="login-register">Don't have an account? <a href="/Register">Register</a></div>
       </div>
     </div>
   );

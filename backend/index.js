@@ -7,11 +7,12 @@ import { getAllMovies,insertMovie,getoneMovie } from "./controllers/Moviecont.js
 import cookieParser from "cookie-parser";
 import { insertTheaterdata,updateMovieData,getAlltheaters } from "./controllers/Theatercont.js";
 import { BookSeats,getBooked } from "./controllers/Bookingcont.js";
+import { sendEmail,verifyCode } from "./controllers/ForgotCont.js";
 dotenv.config();
 
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Connected to MongoDB'))
@@ -71,14 +72,15 @@ app.post("/api/getbooked",async(req,res)=>{
   getBooked(req,res);
 })
 
-app.get('/verify',(req,res)=>{
-  try {
-    const token = req.cookies.token;
-    res.send(token);
-    console.log(token);
-  } catch (err) {
-    console.log(err);
-  }
-  });
+
+//Email verification api
+app.post("/api/verifyemail",async(req,res)=>{
+   sendEmail(req,res);
+})
+
+app.post("/api/verifyCode",async(req,res)=>{
+  verifyCode(req,res);
+})
+
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

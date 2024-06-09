@@ -23,8 +23,6 @@ export const insertMovie = async (req,res) => {
         return res.status(500).json({sucess:false,message:"Internal server error"});
     }
 }
-
-// Function to retrieve all movies from the database
 export const getAllMovies = async (req, res) => {
     try {
         const movies = await Movie.find({});
