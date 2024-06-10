@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Booknow.css";
+import "../Styles/Booknow.css";
 import Seat from "../Images/seat.png";
 import { useLocation, useParams,useNavigate } from 'react-router-dom';
 import axios from "axios";

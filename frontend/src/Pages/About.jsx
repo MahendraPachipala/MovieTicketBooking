@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import './About.css'; // Import your CSS file for custom styling
+import '../Styles/About.css'; // Import your CSS file for custom styling
 
 const About = () => {
     const aboutText = `Welcome to Movie Booking! We are committed to delivering an exceptional movie-watching experience. Our platform offers a wide selection of movies spanning various genres, ensuring there's something for everyone. With our user-friendly interface, booking your favorite movie tickets is quick and easy. Sit back, relax, and enjoy the show in our comfortable theaters. We strive to make your movie experience memorable and enjoyable. Join us today and let's create unforgettable movie moments together!`;

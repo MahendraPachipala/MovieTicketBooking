@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Movies from "../Components/Movies";
-import MovieImage from "./movie.jpg";
-import MovieImage2 from "./movie2.jpg";
-import MovieImage3 from "./movie3.jpg";
-import MovieImage4 from "./movie4.jpg";
+import MovieImage from "../Images/movie.jpg";
+import MovieImage2 from "../Images/movie2.jpg";
+import MovieImage3 from "../Images/movie3.jpg";
+import MovieImage4 from "../Images/movie4.jpg";
 
 const Home = ({searchdata}) => {
   const movieImages = [MovieImage, MovieImage2, MovieImage3, MovieImage4];
